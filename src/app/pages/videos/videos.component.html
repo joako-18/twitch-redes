@@ -2,7 +2,7 @@
 <div class="netflix-container">
   <!-- Navbar -->
   <div class="netflix-navbar">
-    <div class="netflix-logo">NETFLIX</div>
+    <div class="netflix-logo">TWITCH</div>
     <div class="netflix-user-menu">
       <div class="netflix-user-info">
         <span class="netflix-username">{{currentUser?.name}} {{currentUser?.lastname}}</span>
@@ -12,9 +12,6 @@
       <div class="upload-buttons">
         <button class="netflix-upload-button" (click)="openUploadModal()" [disabled]="offlineMode">
           Subir video
-        </button>
-        <button class="netflix-youtube-button" (click)="openYoutubeModal()" [disabled]="offlineMode">
-          Agregar YouTube
         </button>
       </div>
       <button class="netflix-logout-button" (click)="logout()">Cerrar sesión</button>
@@ -163,4 +160,37 @@
       </div>
     </div>
   </div>
+
+  <!-- Sección de videos recomendados -->
+<div class="netflix-recommended-section">
+  <h2 class="netflix-videos-title">Videos recomendados</h2>
+  
+  <div class="netflix-recommended-grid">
+    <div *ngFor="let video of recommendedVideos" class="netflix-recommended-card">
+      <div class="netflix-video-thumbnail">
+        <img [src]="video.url" alt="Miniatura del video recomendado">
+      </div>
+      <div class="netflix-video-info">
+        <h3 class="netflix-video-title">{{video.title}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de tendencias -->
+<div class="netflix-trending-section">
+  <h2 class="netflix-videos-title">Tendencias de la semana</h2>
+  
+  <div class="netflix-recommended-grid">
+    <div *ngFor="let video of trendingVideos" class="netflix-recommended-card">
+      <div class="netflix-video-thumbnail">
+        <img [src]="video.url" alt="Miniatura de tendencia">
+      </div>
+      <div class="netflix-video-info">
+        <h3 class="netflix-video-title">{{video.title}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

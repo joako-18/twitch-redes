@@ -52,6 +52,8 @@ export class VideosComponent {
 
   ngOnInit() {
     this.loadVideos();
+    this.getRecommendedVideos();
+    this.getTrendingVideos();
     this.currentUser = this.usuarioService.currentUserValue?.user;
   }
 
@@ -302,4 +304,50 @@ export class VideosComponent {
   logout() {
     this.usuarioService.logout();
   }
+
+  recommendedVideos: { title: string; url: string }[] = [];
+
+getRecommendedVideos() {
+  this.recommendedVideos = [
+    {
+      title: 'Tutorial Angular Básico',
+      url: 'https://img.youtube.com/vi/2OHbjep_WjQ/mqdefault.jpg'
+    },
+    {
+      title: 'Curso Completo de TypeScript',
+      url: 'https://img.youtube.com/vi/BwuLxPH8IDs/mqdefault.jpg'
+    },
+    {
+      title: 'Deploy con Firebase',
+      url: 'https://img.youtube.com/vi/cnLZ1xBXJzI/mqdefault.jpg'
+    },
+    {
+      title: 'Buenas prácticas en Frontend',
+      url: 'https://img.youtube.com/vi/vAV4Vy4jfkc/mqdefault.jpg'
+    }
+  ];
+}
+
+trendingVideos: { title: string; url: string }[] = [];
+
+getTrendingVideos() {
+  this.trendingVideos = [
+    {
+      title: 'Dominando RxJS en Angular',
+      url: 'https://img.youtube.com/vi/AslncyG8whg/mqdefault.jpg'
+    },
+    {
+      title: 'Top librerías de UI en 2024',
+      url: 'https://img.youtube.com/vi/vzWLGMz8GzE/mqdefault.jpg'
+    },
+    {
+      title: 'Microservicios con NestJS',
+      url: 'https://img.youtube.com/vi/GHTA143_b-s/mqdefault.jpg'
+    },
+    {
+      title: 'JavaScript: Lo que viene',
+      url: 'https://img.youtube.com/vi/XxXyfkrP298/mqdefault.jpg'
+    }
+  ];
+}
 }

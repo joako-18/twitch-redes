@@ -1,10 +1,13 @@
-/*videos.component.css*/
-
+/* Contenedor principal */
 .netflix-container {
   min-height: 100vh;
-  background-color: #141414;
+  background-image: url('/assets/backtwitch.jpg');
+  background-size: cover;  /* Hace que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   color: white;
-  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 60px;
 }
 
 /* Navbar */
@@ -13,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #18181b;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +25,7 @@
 }
 
 .netflix-logo {
-  color: #e50914;
+  color: #9147ff;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -50,7 +53,7 @@
 
 .netflix-user-email {
   font-size: 0.8rem;
-  color: #b3b3b3;
+  color: #adadb8;
 }
 
 .netflix-upload-button, .netflix-youtube-button, .netflix-logout-button {
@@ -61,26 +64,27 @@
   border: none;
 }
 
+/* Botones estilo Twitch */
 .netflix-upload-button {
-  background-color: #4CAF50;
+  background-color: #9147ff;
   color: white;
 }
 
 .netflix-upload-button:hover {
-  background-color: #45a049;
+  background-color: #772ce8;
 }
 
 .netflix-youtube-button {
-  background-color: #e50914;
+  background-color: #6441a5;
   color: white;
 }
 
 .netflix-youtube-button:hover {
-  background-color: #f40612;
+  background-color: #503484;
 }
 
 .netflix-upload-button:disabled, .netflix-youtube-button:disabled {
-  background-color: #666;
+  background-color: #555;
   cursor: not-allowed;
 }
 
@@ -110,8 +114,9 @@
   gap: 20px;
 }
 
+/* Tarjetas de video */
 .netflix-video-card {
-  background-color: #222;
+  background-color: #18181b;
   border-radius: 4px;
   overflow: hidden;
   transition: transform 0.3s;
@@ -171,7 +176,7 @@
 }
 
 .netflix-video-description {
-  color: #b3b3b3;
+  color: #adadb8;
   font-size: 0.9rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -194,7 +199,7 @@
 }
 
 .netflix-modal {
-  background-color: #181818;
+  background-color: #18181b;
   border-radius: 6px;
   padding: 30px;
   width: 100%;
@@ -204,6 +209,7 @@
 .netflix-modal-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  color: #9147ff;
 }
 
 .netflix-modal-form {
@@ -220,12 +226,12 @@
 
 .netflix-form-group label {
   font-size: 0.9rem;
-  color: #b3b3b3;
+  color: #adadb8;
 }
 
 .netflix-form-group input, .netflix-form-group textarea {
   padding: 10px;
-  background-color: #333;
+  background-color: #2c2c2f;
   border: none;
   border-radius: 4px;
   color: white;
@@ -252,25 +258,26 @@
 
 .netflix-modal-cancel {
   background-color: transparent;
-  color: white;
-  border: 1px solid #666;
+  color: #9147ff;
+  border: 1px solid #9147ff;
 }
 
 .netflix-modal-cancel:hover {
-  border-color: white;
+  background-color: #9147ff;
+  color: white;
 }
 
 .netflix-modal-submit {
-  background-color: #e50914;
+  background-color: #9147ff;
   color: white;
   border: none;
 }
 
 .netflix-modal-submit:hover {
-  background-color: #f40612;
+  background-color: #772ce8;
 }
 
-/* Estilos para el modal de video */
+/* Modal para reproducir video */
 .netflix-video-modal-overlay {
   position: fixed;
   top: 0;
@@ -287,7 +294,7 @@
 .netflix-video-modal-content {
   width: 90%;
   max-width: 900px;
-  background-color: #181818;
+  background-color: #18181b;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -311,7 +318,7 @@
 
 .netflix-video-player {
   position: relative;
-  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
@@ -331,19 +338,20 @@
 .netflix-video-modal-info h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: #9147ff;
 }
 
 .netflix-video-modal-info p {
-  color: #b3b3b3;
+  color: #adadb8;
   line-height: 1.5;
 }
 
-/* Badge para modo offline */
+/* Badge modo offline */
 .netflix-offline-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #e50914;
+  background-color: #9147ff;
   color: white;
   padding: 3px 8px;
   border-radius: 3px;
@@ -367,12 +375,12 @@
 }
 
 .netflix-cache-button {
-  background-color: #4CAF50;
+  background-color: #5c16c5;
   color: white;
 }
 
 .netflix-cache-button:hover {
-  background-color: #45a049;
+  background-color: #3b0b99;
 }
 
 .netflix-clear-cache-button {
@@ -384,14 +392,13 @@
   background-color: #d32f2f;
 }
 
-/* Indicador de modo offline en navbar */
 .netflix-user-info .netflix-offline-badge {
   position: static;
   margin-top: 5px;
   background-color: #666;
 }
 
-/* Estilos para la subida de archivos */
+/* Progreso de carga */
 .upload-progress {
   display: flex;
   align-items: center;
@@ -407,23 +414,23 @@
 }
 
 .upload-progress progress::-webkit-progress-bar {
-  background-color: #333;
+  background-color: #2c2c2f;
 }
 
 .upload-progress progress::-webkit-progress-value {
-  background-color: #4CAF50;
+  background-color: #9147ff;
 }
 
 .upload-progress span {
   font-size: 0.9rem;
-  color: #b3b3b3;
+  color: #adadb8;
 }
 
-/* Estilos para el input de archivo */
+/* Input file */
 input[type="file"] {
   width: 100%;
   padding: 10px;
-  background-color: #333;
+  background-color: #2c2c2f;
   border: none;
   border-radius: 4px;
   color: white;
@@ -432,7 +439,7 @@ input[type="file"] {
 
 input[type="file"]::file-selector-button {
   padding: 8px 12px;
-  background-color: #4CAF50;
+  background-color: #9147ff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -441,5 +448,50 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background-color: #45a049;
+  background-color: #772ce8;
+}
+
+.netflix-recommended-section {
+  margin-top: 40px;
+  margin: 50px;
+}
+
+.netflix-recommended-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.netflix-recommended-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.netflix-recommended-card:hover {
+  transform: scale(1.03);
+}
+
+.netflix-recommended-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.netflix-recommended-card .netflix-video-info {
+  padding: 10px;
+}
+
+.netflix-recommended-card .netflix-video-title {
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+}
+
+.netflix-recommended-grid {
+  margin: 50px;
 }

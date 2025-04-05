@@ -1,4 +1,3 @@
-// usuario.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -10,12 +9,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://54.227.114.92:8080';
   private currentUserSubject: BehaviorSubject<AuthResponse | null>;
   public currentUser$: Observable<AuthResponse | null>;
 
   constructor(private http: HttpClient, private router: Router) {
-    // Intenta cargar el usuario desde localStorage al iniciar
     const storedUser = localStorage.getItem('currentUser');
     this.currentUserSubject = new BehaviorSubject<AuthResponse | null>(
       storedUser ? JSON.parse(storedUser) : null
@@ -27,11 +25,9 @@ export class UsuarioService {
     return this.currentUserSubject.value;
   }
 
-  // Auth
   login(email: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, { email, password }).pipe(
       tap(response => {
-        // Almacenar usuario y token en localStorage
         localStorage.setItem('currentUser', JSON.stringify(response));
         localStorage.setItem('token', response.token);
         this.currentUserSubject.next(response);
@@ -40,7 +36,6 @@ export class UsuarioService {
   }
 
   logout(): void {
-    // Remover usuario y token de localStorage
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
     this.currentUserSubject.next(null);
@@ -51,7 +46,6 @@ export class UsuarioService {
     return !!this.currentUserValue;
   }
 
-  // Usuarios
   createUsuario(usuario: Omit<Usuario, 'id'>): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.apiUrl}/usuarios/`, usuario);
   }

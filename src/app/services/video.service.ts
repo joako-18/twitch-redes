@@ -1,4 +1,3 @@
-//video.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,7 +7,7 @@ import { Video, CreateVideoRequest } from '../interfaces/video.interface';
   providedIn: 'root'
 })
 export class VideoService {
-  readonly apiUrl = 'http://localhost:8000';
+  readonly apiUrl = 'http://54.227.114.92:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +19,6 @@ export class VideoService {
     return this.http.get<Video>(`${this.apiUrl}/videos/${id}`);
   }
 
-  // Para subir archivos de video
   uploadVideoFile(formData: FormData): Observable<HttpEvent<any>> {
     const req = new HttpRequest('POST', `${this.apiUrl}/videos/upload`, formData, {
       reportProgress: true,
@@ -29,7 +27,6 @@ export class VideoService {
     return this.http.request(req);
   }
 
-  // Para agregar videos de YouTube
   addYouTubeVideo(videoData: CreateVideoRequest): Observable<Video> {
     return this.http.post<Video>(`${this.apiUrl}/videos/`, videoData);
   }
